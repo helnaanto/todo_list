@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+          #leftPane {
+              width: 200px;
+              height: 500px;
+              border: 1px solid;
+              float: left;
+          }
+          #rightPane {
+              height: 500px;
+              width: 600px;
+              border: 1px solid;
+              border-left: 0px;
+              float: left;
+          }
+          #addTo {
+              border: 1px solid;
+          }
+          #addTo input {
+              border: none;
+          }
+          #showList ul{
+              list-style: none;
+            }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+        $('#todoItem').keypress(function(e){        
+            if (e.which ==13) {
+                var item = $('#todoItem').val();
+                var chkbox = "<input type='checkbox' name='"+item+"'>"
+                $("#showList ul").append("<li>"+chkbox+""+item+"</li>");
+            }
+        })
+        $("#showList li ul input[type=checkbox]").change(function(){
+            var $this = $(this);
+            alert("tell me");
+            /*if ($this.is(':checked')) {
+                $(this).parent().remove();
+            }*/
+        }) 
+    })
+  </script>
+</head>
+<body>
+    <div id="leftPane">
+      <ul>
+        <li>Shopping List</li>
+        <li>Movie List`</li>
+        <ul>
+    </div>
+    <div id="rightPane">
+      <p>Let's add some todo</p>
+      <div id="addTo">
+        <input id="todoItem" type="text" placeholder="Add a todo"></input>
+      </div>
+      <div id="showList">
+        <ul>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
